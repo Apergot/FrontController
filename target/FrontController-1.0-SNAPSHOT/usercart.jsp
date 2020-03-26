@@ -18,21 +18,10 @@
     </head>
     <body>
         <jsp:include page="./components/header.jsp"/>
-         <div class="wrapper fadeInDown">
-            <div id="formContent">
-                <div class="fadeIn first">
-                    <img src="./assets/img/user.png" id="icon" alt="User Icon" />
-                </div>
-                <form action="FrontControllerServlet">
-                    <input type="text" id="name" class="fadeIn second" name="name" placeholder="Username">
-                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-                    <input style="display:none;" name="op" value="login">
-                    <input type="submit" class="fadeIn fourth" name="command" value="login">
-                </form>
-                <div id="formFooter">
-                    <a class="underlineHover" href="#">Forgot Password?</a>
-                </div>
-            </div>
+        <div class="container">
+        <% if (session.getAttribute("user") != null) { %>
+            <jsp:include page="./components/shoppingcart.jsp"/>     
+        <% }%>
         </div>
         <jsp:include page="./components/footer.jsp"/>
     </body>

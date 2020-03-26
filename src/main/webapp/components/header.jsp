@@ -4,6 +4,7 @@
     Author     : Apergot
 --%>
 
+<%@page import="Model.users.User"%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.jsp">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,29 +16,47 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            <%
+                if (session.getAttribute("user") != null) {
+            %>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                <a class="nav-link" href="usercart.jsp">Your cart</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#">Purchased Books</a>
             </li>
+            <%    
+                }
+            %>
+            
         </ul>
         <form class="form-inline my-2 my-lg-0" action="FrontControllerServlet">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="title">
             <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-4" name="command" value="search">Search</button>
-            <button class="btn btn-info my-2 my-sm-0 mr-sm-2" name="command" value="login">Log In</button>
-            <button class="btn btn-info my-2 my-sm-0 mr-sm-2" name="command" value="register">Register</button>
         </form>
+        
+        <%
+            if (session.getAttribute("user") != null) {
+                User user = (User)session.getAttribute("user");
+                String username = user.getUsername();
+        %>
+        <button class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2" disabled><%= username%></button>
+            <form action="FrontControllerServlet">
+                <input style="display:none;" name="op" value="logout"/>
+                <button type="submit" class="btn btn-info my-2 my-sm-0 mr-sm-2" name="command" value="logout">Log Out</button>
+            </form>
+        <%        
+            } else {    
+        %>
+        <form action="/FrontController/login.jsp">
+            <button class="btn btn-info my-2 my-sm-0 mr-sm-2">Log In</button>
+        </form>
+        <form action="/FrontController/register.jsp">
+            <button class="btn btn-info my-2 my-sm-0 mr-sm-2">Register</button>
+        </form>
+        <%
+            }
+        %>
+        
     </div>
 </nav>

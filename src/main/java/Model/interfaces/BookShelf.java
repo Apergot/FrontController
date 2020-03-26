@@ -12,7 +12,6 @@ import Model.library.Book;
  * @author Apergot
  */
 public interface BookShelf {
-    BookShelf getInstance();
     void add(Book book);
     Book findByTitle(String title);
 }

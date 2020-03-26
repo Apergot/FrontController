@@ -6,8 +6,6 @@
 package commands;
 
 import Controller.FrontCommand;
-import Model.library.Book;
-import Model.library.BookShelfImp;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,25 +15,19 @@ import javax.servlet.ServletException;
  *
  * @author Apergot
  */
-public class searchCommand extends FrontCommand {
-
+public class logoutCommand extends FrontCommand{
+    
     @Override
     public void process() throws ServletException, IOException {
         try {
-            BookShelfImp bookshelf = new BookShelfImp();
-            Book book = bookshelf.findByTitle(request.getParameter("title"));
-            if (book != null) {
-                request.setAttribute("book", book);
-                forward("book-found");
-            } else {
-                forward("book-not-found");
-            }
+            request.getRequestDispatcher("SessionInitializer").forward(request, response);
         } catch (ServletException | IOException ex) {
             try {
-                forward("error");
+                forward("/unknown.jsp");
             } catch (ServletException | IOException ex1) {
-                Logger.getLogger(registerCommand.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(loginCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }
+    
 }

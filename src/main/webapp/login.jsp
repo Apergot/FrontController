@@ -23,9 +23,10 @@
                 <div class="fadeIn first">
                     <img src="./assets/img/user.png" id="icon" alt="User Icon" />
                 </div>
-                <form>
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                    <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+                <form action="FrontControllerServlet">
+                    <input type="text" id="name" class="fadeIn second" name="name" placeholder="Username">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+                    <input style="display:none;" name="op" value="login">
                     <input type="submit" class="fadeIn fourth" name="command" value="login">
                 </form>
                 <div id="formFooter">

@@ -22,7 +22,7 @@
             <div class="hero-text">
                 <h1 style="font-size:8rem">404</h1>
                 <p>You should not be here</p>
-                <button class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2">Forget this</button>
+                <button class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"><a href="index.jsp" style="text-decoration: none;color:white">Forget this</a></button>
             </div>
         </div>
         <jsp:include page="./components/footer.jsp"/>

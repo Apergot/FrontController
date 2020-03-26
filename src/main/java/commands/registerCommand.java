@@ -20,12 +20,12 @@ public class registerCommand extends FrontCommand{
     @Override
     public void process() throws ServletException, IOException {
         try {
-            forward("register");
+            request.getRequestDispatcher("SessionInitializer").forward(request, response);
         } catch (ServletException | IOException ex) {
             try {
-                forward("error");
+                forward("/unknown.jsp");
             } catch (ServletException | IOException ex1) {
-                Logger.getLogger(registerCommand.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(loginCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }

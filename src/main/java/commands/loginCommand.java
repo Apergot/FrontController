@@ -4,6 +4,7 @@ import Controller.FrontCommand;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 
 /*
@@ -21,14 +22,13 @@ public class loginCommand extends FrontCommand{
     @Override
     public void process() throws ServletException, IOException {
         try {
-            forward("login");
+            request.getRequestDispatcher("SessionInitializer").forward(request, response);
         } catch (ServletException | IOException ex) {
             try {
-                forward("error");
+                forward("/unknown.jsp");
             } catch (ServletException | IOException ex1) {
                 Logger.getLogger(loginCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }
-    
 }

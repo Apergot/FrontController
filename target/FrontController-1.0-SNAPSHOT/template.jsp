@@ -18,6 +18,7 @@
     </head>
     <body>
         <jsp:include page="./components/header.jsp"/>
+        <jsp:include page="/components/shoppingcart.jsp"/>
         <jsp:include page="./components/footer.jsp"/>
     </body>
 </html>
