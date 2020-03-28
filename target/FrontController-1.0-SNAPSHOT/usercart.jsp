@@ -17,12 +17,19 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-        <jsp:include page="./components/header.jsp"/>
-        <div class="container">
-        <% if (session.getAttribute("user") != null) { %>
-            <jsp:include page="./components/shoppingcart.jsp"/>     
-        <% }%>
+
+        <div id="page-container">
+            <div id="content-wrap">
+                <jsp:include page="./components/header.jsp"/>
+                <div class="container">
+                    <% if (session.getAttribute("user") != null) { %>
+                    <jsp:include page="./components/shoppingcart.jsp"/>     
+                    <% }%>
+                </div>
+                <jsp:include page="./components/footer.jsp"/>
+            </div>
+
         </div>
-        <jsp:include page="./components/footer.jsp"/>
+
     </body>
 </html>

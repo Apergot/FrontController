@@ -19,7 +19,7 @@
                     Cart cart = (Cart)session.getAttribute("cart");
                     List<Book> booksToBuy = cart.getBooksToBuy();
                     double totalPrice= 0.0;
-                    if (booksToBuy.size()< 0) {
+                    if (booksToBuy.size()== 0) {
                 %>
                     <p>Not items added to the cart already</p>
                 <%
@@ -42,9 +42,12 @@
                                 <h6>Precio <strong><%= booksToBuy.get(i).getPrice()%> <span class="text-muted">$</span></strong></h6>
                             </div>
                             <div class="col-6 col-sm-6 col-md-6 text-right">
-                                <button type="button" class="btn btn-outline-danger btn-xs">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </button>
+                                <form action="FrontControllerServlet">
+                                    <input style="display:none" name="id" value="<%= booksToBuy.get(i).getId()%>">
+                                    <button class="btn btn-outline-danger btn-xs" name="command" value="removefromcart">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -54,7 +57,7 @@
                     }
                 %>
                 <div class="pull-right">
-                    <a href="" class="btn btn-outline-secondary pull-right">
+                    <a href="usercart.jsp" class="btn btn-outline-secondary pull-right">
                         Update shopping cart
                     </a>
                 </div>

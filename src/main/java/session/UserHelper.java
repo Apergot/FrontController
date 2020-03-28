@@ -20,7 +20,7 @@ public class UserHelper {
     
     public static User RegisterUser (User user) {
         if (CheckIfUserExists(user)) {
-            return null;
+            return user;
         }
         //TODO: register the user into the system and log in
         return user;

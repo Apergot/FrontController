@@ -15,8 +15,7 @@ import javax.servlet.ServletException;
  *
  * @author Apergot
  */
-public class logoutCommand extends FrontCommand{
-    
+public class controlCommand extends FrontCommand{
     @Override
     public void process() throws ServletException, IOException {
         try {
@@ -25,9 +24,8 @@ public class logoutCommand extends FrontCommand{
             try {
                 forward("/unknown.jsp");
             } catch (ServletException | IOException ex1) {
-                Logger.getLogger(loginCommand.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(controlCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }
-    
 }

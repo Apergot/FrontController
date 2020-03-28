@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 13 mar. 2020, 9:50:53
+    Document   : purchased
+    Created on : 28 mar. 2020, 17:39:50
     Author     : Apergot
 --%>
 
@@ -17,8 +17,12 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-        <jsp:include page="./components/header.jsp"/>
-        <jsp:include page="/components/shoppingcart.jsp"/>
-        <jsp:include page="./components/footer.jsp"/>
+        <div id="page-container">
+            <div id="content-wrap">
+                <jsp:include page="./components/header.jsp"/>
+                
+                <jsp:include page="./components/footer.jsp"/>
+            </div>
+        </div>
     </body>
 </html>

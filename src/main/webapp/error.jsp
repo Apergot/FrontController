@@ -17,14 +17,14 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-        <jsp:include page="./components/header.jsp"/>
-         <div class="hero-image">
-            <div class="hero-text">
-                <h1 style="font-size:8rem">404</h1>
-                <p>You should not be here</p>
-                <button class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"><a href="index.jsp" style="text-decoration: none;color:white">Forget this</a></button>
+            <jsp:include page="./components/header.jsp"/>
+            <div class="hero-image">
+                <div class="hero-text">
+                    <h1 style="font-size:8rem">404</h1>
+                    <p>You should not be here</p>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"><a href="index.jsp" style="text-decoration: none;color:white">Forget this</a></button>
+                </div>
             </div>
-        </div>
-        <jsp:include page="./components/footer.jsp"/>
+            <jsp:include page="./components/footer.jsp"/>
     </body>
 </html>

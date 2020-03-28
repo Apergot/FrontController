@@ -17,8 +17,12 @@
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
     <body>
-        <jsp:include page="./components/header.jsp"/>
-        <h1>Book not found at the bookshelf :(</h1>
-        <jsp:include page="./components/footer.jsp"/>
+
+        <div id="page-container">
+            <div id="content-wrap"></div>
+            <jsp:include page="./components/header.jsp"/>
+            <h1>Book not found at the bookshelf :(</h1>
+            <jsp:include page="./components/footer.jsp"/>
+        </div>
     </body>
 </html>

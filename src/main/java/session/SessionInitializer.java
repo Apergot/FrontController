@@ -70,6 +70,7 @@ public class SessionInitializer extends HttpServlet {
                 ));
             }
             System.out.println("Se ha registrado en el sistema");
+            System.out.println(((User)session.getAttribute("user")).getUsername());
         } else if (request.getParameter("op").equals("logout")) {
             session.invalidate();
             System.out.println("se ha deslogueado");

@@ -14,12 +14,18 @@ public class Book {
     private String title;
     private double price;
     private int stock;
+    private final int id;
 
-    public Book(String author, String title, double price, int stock) {
+    public Book(int id, String author, String title, double price, int stock) {
+        this.id = id;
         this.author = author;
         this.title = title;
         this.price = price;
         this.stock = stock;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getAuthor() {

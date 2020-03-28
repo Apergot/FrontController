@@ -19,12 +19,14 @@ public class Cart {
     
     public Cart() {
         this.booksToBuy = new ArrayList<>();
+        /*
         this.booksToBuy.add(new Book("Wilson, Robert Anton & Shea, Robert", 
           "illuminati", 9.99, 15));
         this.booksToBuy.add(new Book("Fowler, Martin", 
           "patterns of enterprise application architecture", 27.88, 16));
         this.booksToBuy.add(new Book("J.K. Rowling", 
           "harry potter y la piedra filosofal", 24.33, 53));
+          */
     }
     
     public boolean addToCart(Book book) {
@@ -32,9 +34,14 @@ public class Cart {
         return this.booksToBuy.contains(book);
     }
     
-    public boolean removeFromCart(Book book) {
-        this.booksToBuy.remove(book);
-        return !this.booksToBuy.contains(book);
+    public void removeFromCart(int id) {
+        Book bookToRemove = null;
+        for (Book book : this.booksToBuy) {
+            if (book.getId() == id) {
+                bookToRemove = book;
+            }
+        }
+        this.booksToBuy.remove(bookToRemove);
     }
     
     public List<Book> getBooksToBuy () {

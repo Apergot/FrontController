@@ -10,22 +10,28 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
+import session.Cart;
 
 /**
  *
  * @author Apergot
  */
-public class registerCommand extends FrontCommand{
+public class removefromcartCommand extends FrontCommand{
 
     @Override
     public void process() throws ServletException, IOException {
         try {
-            request.getRequestDispatcher("SessionInitializer").forward(request, response);
-        } catch (ServletException | IOException ex) {
+            HttpSession session = request.getSession();
+            Cart userCart = (Cart)session.getAttribute("cart");
+            userCart.removeFromCart(Integer.parseInt(request.getParameter("id")));
+            session.setAttribute("cart", userCart);
+            forward("usercart");
+        } catch (Exception ex) {
             try {
-                forward("/unknown.jsp");
+                forward("error");
             } catch (ServletException | IOException ex1) {
-                Logger.getLogger(loginCommand.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(removefromcartCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }

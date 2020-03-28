@@ -6,36 +6,40 @@
 package commands;
 
 import Controller.FrontCommand;
-import Model.library.Book;
 import Model.library.BookShelfImp;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
+import session.Cart;
 
 /**
  *
  * @author Apergot
  */
-public class searchCommand extends FrontCommand {
+public class addtocartCommand extends FrontCommand {
 
     @Override
     public void process() throws ServletException, IOException {
         try {
+            HttpSession session = request.getSession();
+            Cart userCart = (Cart)session.getAttribute("cart");
             BookShelfImp bookshelf = new BookShelfImp();
-            Book book = bookshelf.findByTitle(request.getParameter("title"));
-            if (book != null) {
-                request.setAttribute("book", book);
-                forward("book-found");
+            if (bookshelf.getBookById(Integer.parseInt(request.getParameter("id"))) == null) {
+                forward("error");
             } else {
-                forward("book-not-found");
+                userCart.addToCart(bookshelf.getBookById(Integer.parseInt(request.getParameter("id"))));
+                session.setAttribute("cart", userCart);
+                forward("index");
             }
-        } catch (ServletException | IOException ex) {
+        } catch (Exception ex) {
             try {
                 forward("error");
             } catch (ServletException | IOException ex1) {
-                Logger.getLogger(searchCommand.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(addtocartCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
     }
+    
 }
