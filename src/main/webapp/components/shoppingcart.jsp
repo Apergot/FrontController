@@ -55,6 +55,7 @@
                 <%
                         }
                     }
+                    double finalPrice = Math.round(totalPrice*100.0)/100.0;
                 %>
                 <div class="pull-right">
                     <a href="usercart.jsp" class="btn btn-outline-secondary pull-right">
@@ -63,10 +64,13 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
-                    <div class="pull-right" style="margin: 10px">
-                        Total price: <b><%= Math.round(totalPrice*100.0)/100.0%></b>
+                <div class="d-flex flex-row-reverse" style="margin: 10px">
+                    <form action="FrontControllerServlet">
+                        <input style="display: none" name="topay" value="<%= finalPrice%>"> 
+                        <button class="btn btn-success" name="command" value="buy">Checkout</button>
+                    </form>
+                    <div style="margin: 10px">
+                        Total price: <b><%= finalPrice%></b>
                     </div>
                 </div>
             </div>

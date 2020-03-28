@@ -25,7 +25,7 @@
                 <a class="nav-link" href="usercart.jsp">Your cart</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Purchased Books</a>
+                <a class="nav-link" href="purchased.jsp">Purchased Books</a>
             </li>
             <%    
                 }

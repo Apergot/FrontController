@@ -5,6 +5,10 @@
  */
 package Model.users;
 
+import Model.library.Book;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Apergot
@@ -12,15 +16,30 @@ package Model.users;
 public class User {
     
     String username;
-    String password;
+    public List<Book> purchasedBooks;
     
-    public User (String username, String password) {
+    public User (String username) {
         this.username = username;
-        this.password = password;
+        this.purchasedBooks = new ArrayList<>();
+        //TODO:Get from db purchasedbooks
     }
     
     public String getUsername () {
         return this.username;
+    }
+    
+    public void addPurchasedBooks(List<Book> booksToAdd) {
+        //TODO: should add books to db referencing user to make it persistent
+        this.purchasedBooks.addAll(booksToAdd);
+    }
+    
+    public boolean checkIfPurchased(Book book) {
+        for (Book purchasedBook : this.purchasedBooks) {
+            if (purchasedBook.getId() == book.getId()) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }

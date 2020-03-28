@@ -19,14 +19,6 @@ public class Cart {
     
     public Cart() {
         this.booksToBuy = new ArrayList<>();
-        /*
-        this.booksToBuy.add(new Book("Wilson, Robert Anton & Shea, Robert", 
-          "illuminati", 9.99, 15));
-        this.booksToBuy.add(new Book("Fowler, Martin", 
-          "patterns of enterprise application architecture", 27.88, 16));
-        this.booksToBuy.add(new Book("J.K. Rowling", 
-          "harry potter y la piedra filosofal", 24.33, 53));
-          */
     }
     
     public boolean addToCart(Book book) {
@@ -54,5 +46,9 @@ public class Cart {
             result += b.getPrice();
         }
         return result;
+    }
+    
+    public void empty() {
+        this.booksToBuy.clear();
     }
 }

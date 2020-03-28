@@ -13,23 +13,23 @@ import Model.users.User;
  */
 public class UserHelper {
     
-    private static boolean CheckIfUserExists (User user) {
+    private static boolean CheckIfUserExists (String username) {
         //TODO: check if the user exists in the database
         return true;
     }
     
-    public static User RegisterUser (User user) {
-        if (CheckIfUserExists(user)) {
-            return user;
+    public static User RegisterUser (String username, String password) {
+        if (CheckIfUserExists(username)) {
+            return new User(username);
         }
         //TODO: register the user into the system and log in
-        return user;
+        return new User(username);
     }
     
-    public static User LogUserIn (User user) {
-        if (CheckIfUserExists(user)) {
+    public static User LogUserIn (String username, String password) {
+        if (CheckIfUserExists(username)) {
             //Todo: log the user into the system and return User objec to to store in session.
-            return user;
+            return new User(username);
         }
         return null;
     }

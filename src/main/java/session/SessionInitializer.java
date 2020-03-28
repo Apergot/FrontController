@@ -53,20 +53,16 @@ public class SessionInitializer extends HttpServlet {
         if (request.getParameter("op").equals("login")){
             if (session.getAttribute("user") == null) {
                 session.setAttribute("user", UserHelper.LogUserIn(
-                        new User(
-                                request.getParameter("name"), 
-                                request.getParameter("password")
-                        )
+                    request.getParameter("name"), 
+                    request.getParameter("password")
                 ));
             }
             System.out.println("se ha logueado en el sistema");
         } else if (request.getParameter("op").equals("register")) {
             if (session.getAttribute("user") == null) {
                 session.setAttribute("user", UserHelper.RegisterUser(
-                        new User(
-                                request.getParameter("name"),
-                                request.getParameter("password")
-                        )
+                    request.getParameter("name"),
+                    request.getParameter("password")
                 ));
             }
             System.out.println("Se ha registrado en el sistema");
