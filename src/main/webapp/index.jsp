@@ -21,6 +21,7 @@
     %>
     <div class="row">
         <%
+            
             BookShelfImp bookshelf = new BookShelfImp();
             if (session.getAttribute("user") != null) {
                 User user = (User) session.getAttribute("user");
@@ -37,8 +38,7 @@
                         <h4 class="card-title"><%= bookshelf.books.get(i).getTitle()%></h4>
                     </a>
                     <h6 class="card-subtitle mb-2 text-muted"><%= bookshelf.books.get(i).getAuthor()%></h6>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo, magni autem adipisci architecto unde</p>
+                    <p class="card-text"></p>
                     <div class="buy d-flex justify-content-between align-items-center">
                         <div class="price text-success"><h5 class="mt-4">$<%= bookshelf.books.get(i).getPrice()%></h5></div>
                         <form action="FrontControllerServlet">
@@ -64,8 +64,7 @@
                         <h4 class="card-title"><%= bookshelf.books.get(i).getTitle()%></h4>
                     </a>
                     <h6 class="card-subtitle mb-2 text-muted"><%= bookshelf.books.get(i).getAuthor()%></h6>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, nemo, magni autem adipisci architecto unde</p>
+                    <p class="card-text"></p>
                     <div class="buy d-flex justify-content-between align-items-center">
                         <div class="price text-success"><h5 class="mt-4">$<%= bookshelf.books.get(i).getPrice()%></h5></div>
                         <button class="btn btn-danger mt-3" disabled data-toggle="tooltip" data-placement="bottom" title="You need to log in first">Add to cart</button>

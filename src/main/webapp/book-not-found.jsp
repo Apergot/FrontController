@@ -6,5 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="./components/header.jsp"/>
-<h1>Book not found at the bookshelf :(</h1>
+<div class="text-center mr-auto">
+    <p>Book not found at our inventory, sorry for the inconvenience</p>
+    <p>You can try again as much as your want</p>
+</div>
 <jsp:include page="./components/footer.jsp"/>

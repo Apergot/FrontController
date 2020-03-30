@@ -6,6 +6,7 @@
 package Model.interfaces;
 
 import Model.library.Book;
+import java.util.List;
 
 /**
  *
@@ -13,5 +14,5 @@ import Model.library.Book;
  */
 public interface BookShelf {
     void add(Book book);
-    Book findByTitle(String title);
+    List<Book> findByTitle(String title);
 }

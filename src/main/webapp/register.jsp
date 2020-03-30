@@ -12,7 +12,7 @@
         <div class="fadeIn first">
             <img src="./assets/img/user.png" id="icon" alt="User Icon" />
         </div>
-        <form action="FrontControllerServlet">
+        <form action="FrontControllerServlet" method="post">
             <input style="display:none" name="op" value="register">
             <input type="email" id="login" class="fadeIn second" name="name" placeholder="E-mail">
             <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">

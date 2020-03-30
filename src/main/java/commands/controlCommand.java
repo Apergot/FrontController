@@ -20,9 +20,9 @@ public class controlCommand extends FrontCommand{
     public void process() throws ServletException, IOException {
         try {
             request.getRequestDispatcher("SessionInitializer").forward(request, response);
-        } catch (ServletException | IOException ex) {
+        } catch (Exception ex) {
             try {
-                forward("/unknown.jsp");
+                forward("error");
             } catch (ServletException | IOException ex1) {
                 Logger.getLogger(controlCommand.class.getName()).log(Level.SEVERE, null, ex1);
             }

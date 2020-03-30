@@ -9,9 +9,11 @@ import Controller.FrontCommand;
 import Model.library.Book;
 import Model.library.BookShelfImp;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -23,9 +25,10 @@ public class searchCommand extends FrontCommand {
     public void process() throws ServletException, IOException {
         try {
             BookShelfImp bookshelf = new BookShelfImp();
-            Book book = bookshelf.findByTitle(request.getParameter("title"));
-            if (book != null) {
-                request.setAttribute("book", book);
+            List<Book> books = bookshelf.findByTitle(request.getParameter("title"));
+            if (books.size() > 0) {
+                HttpSession session = request.getSession();
+                session.setAttribute("books", books);
                 forward("book-found");
             } else {
                 forward("book-not-found");

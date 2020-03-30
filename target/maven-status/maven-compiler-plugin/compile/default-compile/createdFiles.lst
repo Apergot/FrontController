@@ -1,4 +1,5 @@
 commands\unknownCommand.class
+commands\commentCommand.class
 Controller\FrontCommand.class
 session\Cart.class
 session\UserHelper.class
@@ -13,4 +14,5 @@ session\SessionInitializer.class
 Model\users\User.class
 Controller\UnknownCommand.class
 Model\library\Book.class
+Model\users\Comment.class
 commands\removefromcartCommand.class

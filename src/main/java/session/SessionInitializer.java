@@ -48,7 +48,6 @@ public class SessionInitializer extends HttpServlet {
          * storing user data into session to access it whenever I want.
          */
         
-        User user;
         if (request.getParameter("op").equals("login")){
             if (session.getAttribute("user") == null) {
                 session.setAttribute("user", UserHelper.LogUserIn(

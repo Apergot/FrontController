@@ -81,7 +81,10 @@ public class FrontControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        FrontCommand command = getCommand(request);
+        command.init(getServletContext(), request, response);
+        command.process();
     }
 
     /**

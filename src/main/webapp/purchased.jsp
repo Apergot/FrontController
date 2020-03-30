@@ -10,6 +10,7 @@
 <%
     User user = (User) session.getAttribute("user");
 %>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -20,7 +21,10 @@
                            for (int i = 0; i < user.purchasedBooks.size(); i++) {%>
                 <li class="list-group-item d-flex justify-content-between align-items-center">  
                     <div>
+                        
+                    <a href="bookdetail.jsp?id=<%=user.purchasedBooks.get(i).getId()%>">
                         <p><%= user.purchasedBooks.get(i).getTitle()%></p>
+                    </a>
                         <p><%= user.purchasedBooks.get(i).getAuthor()%></p>
                     </div>
                     <div class="image-parent">

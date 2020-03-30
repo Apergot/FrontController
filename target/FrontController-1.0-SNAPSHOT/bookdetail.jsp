@@ -7,7 +7,7 @@
 <%@page import="Model.library.BookShelfImp"%>
 <%@page import="Model.library.Book"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
+<%  
     BookShelfImp bookshelf = new BookShelfImp();
     Book book = bookshelf.getBookById(Integer.parseInt(request.getParameter("id")));
 %>
@@ -50,5 +50,6 @@
             </div>
         </div>
     </div>
+ 
 </div>
 <jsp:include page="./components/footer.jsp"/>

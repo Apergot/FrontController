@@ -53,13 +53,14 @@ public class BookShelfImp implements BookShelf{
     }
 
     @Override
-    public Book findByTitle(String title) {
-        for (Book e : this.books) {
-            if (e.getTitle().equals(title)) {
-                return e;
+    public List<Book> findByTitle(String title) {
+        List<Book> result = new ArrayList<>();
+        for (int i = 0; i<this.books.size(); i++) {
+            if ((this.books.get(i).getTitle().toLowerCase()).contains(title.toLowerCase())) {
+                result.add(this.books.get(i));
             }
         }
-        return null;
+        return result;
     }
     
     public Book getBookById(int id) {

@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="success-alert" class="alert alert-success text-center" role="alert">
-    Your selection has been added to your cart succesfully!<i class="fa fa-check-circle" aria-hidden="true"></i>
+    Action completed successfully! <i class="fa fa-check-circle" aria-hidden="true"></i>
 </div>
 <script>
     $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){

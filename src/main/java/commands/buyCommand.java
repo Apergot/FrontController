@@ -35,7 +35,8 @@ public class buyCommand extends FrontCommand{
              }
             session.setAttribute("cart", cart);
             session.setAttribute("user", user);
-            forward("index");
+            session.setAttribute("bought", "done");
+            forward("usercart");
         } catch (Exception ex) {
             try {
                 forward("error");
