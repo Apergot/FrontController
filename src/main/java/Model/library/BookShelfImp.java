@@ -6,7 +6,6 @@
 package Model.library;
 
 import Model.interfaces.BookShelf;
-import Model.users.User;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,10 +71,4 @@ public class BookShelfImp implements BookShelf{
         return null;
     }
     
-    public boolean checkIfPurchased(User user, Book book) {
-        if (user.purchasedBooks.contains(book)) {
-            return true;
-        }
-        return false;
-    }
 }

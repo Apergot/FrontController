@@ -6,3 +6,7 @@
 <footer id="footer">
     <p>&copy; 2020 Alejandro Perdomo</p>
 </footer>
+</div>
+</div>
+</body>
+</html>

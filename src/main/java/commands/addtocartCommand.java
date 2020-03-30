@@ -29,8 +29,11 @@ public class addtocartCommand extends FrontCommand {
             if (bookshelf.getBookById(Integer.parseInt(request.getParameter("id"))) == null) {
                 forward("error");
             } else {
-                userCart.addToCart(bookshelf.getBookById(Integer.parseInt(request.getParameter("id"))));
-                session.setAttribute("cart", userCart);
+                if (!userCart.checkIfAlreadyAtTheCartById(Integer.parseInt(request.getParameter("id")))) {
+                    userCart.addToCart(bookshelf.getBookById(Integer.parseInt(request.getParameter("id"))));
+                    session.setAttribute("cart", userCart);
+                }
+                session.setAttribute("bought", "done");
                 forward("index");
             }
         } catch (Exception ex) {

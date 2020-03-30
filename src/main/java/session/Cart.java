@@ -48,6 +48,15 @@ public class Cart {
         return result;
     }
     
+    public boolean checkIfAlreadyAtTheCartById(int id) {
+        for (Book book : this.booksToBuy) {
+            if (book.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void empty() {
         this.booksToBuy.clear();
     }
